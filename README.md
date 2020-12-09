@@ -1,4 +1,4 @@
-# Classifying-Comments-w-Differentialy-Private-Gradient-Descent
+# Classifying-Comments-w-Differentially-Private-Gradient-Descent
 ## Problem Statement
 When a Youtube video starts to become popular, many people try to use it as a platform to boost their own content, often “spamming” the comments with links to their own videos, channels, or websites. In my project I will try to differentiate between spam comments and regular comments using logistic regression, gradient descent, and differentially private gradient descent, then compare the effectiveness of each method. The dataset being used is a collection of over one thousand comments from three highly viewed videos, taken from the UCI machine learning repository.
 

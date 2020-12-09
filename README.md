@@ -1,12 +1,12 @@
 # Classifying-Comments-w-Differentialy-Private-Gradient-Descent
-## Problem Statement:
+## Problem Statement
 	When a Youtube video starts to become popular, many people try to use it as a platform to boost their own content, often “spamming” the comments with links to their own videos, channels, or websites. In my project I will try to differentiate between spam comments and regular comments using logistic regression, gradient descent, and differentially private gradient descent, then compare the effectiveness of each method. The dataset being used is a collection of over one thousand comments from three highly viewed videos, taken from the UCI machine learning repository.
 
-## Technical Description:
+## Technical Description
 	The first thing that had to be done was to modify some of the data so that gradient descent could be performed on it. The Youtube comments are stored as a collection of strings, which cannot be used for gradient descent. To make them workable, I used the bag of words method, counting how many times each word appeared in a comment. This turned my single comment feature into a collection of over thirty five hundred features. The classification variable also needed to be modified. The dataset had a zero representing a normal comment, and a one representing a spam comment. To work with the given predict function, I changed the zero to a negative one.
 	The first thing that I did to the data was use a Sklearn logistic regression model to get baseline results, and see if it was possible to accomplish my initial goal. This produced promising results, so I moved on to plain gradient descent. Using the process that we went over in class, I used gradient descent with different numbers of iterations to predict the class of comments. I stored the results in a list to compare with differentially private gradient descent. Due to the sparsity of my data, the predict function often returned a handful of zeros. This was an issue, because zero did not represent any kind of class, so I modified the predict function so that if it calculated a zero, it would assume that the comment was not spam.
 For differentially private gradient descent, I used the same number of iterations and made sure that they satisfied (𝜖,𝛿)-differential privacy through sequential composition, and stored the results separately. Finally, I compared the results in a graph, then ran the differentially private gradient descent again with a higher privacy cost in hopes of getting better results. The results were then compared with the initial gradient descent results in a separate graph.
 
 
-## Results:
+## Results
 	The Sklearn logistic regression model produced the best results, with an accuracy of 93.72%. Gradient descent produced results close to that, with an accuracy of 91.28% with sixty iterations. (𝜖,𝛿)-differentially private gradient descent produced much worse results, with results generally being at around 70% for one iteration, and as low as 50% for sixty iterations. This was improved upon slightly by raising the privacy cost, with sixty iterations generally producing results that were about 70% accurate.
